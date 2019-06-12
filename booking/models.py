@@ -86,7 +86,6 @@ class Booktruck(models.Model):
     booking_date = models.DateTimeField(blank=True, null=True)
     return_date = models.DateTimeField(blank=True, null=True)
     approved = models.BooleanField(default=False, null=True, blank=True)
-    unapproved = models.BooleanField(default=True, null=True, blank=True)
     timestamp = models.DateTimeField(default=timezone.now)    
     is_published = models.BooleanField(default=True)
     def __str__(self):
