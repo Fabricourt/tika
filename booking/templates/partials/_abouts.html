@@ -1,0 +1,258 @@
+{% load static %}
+
+<style>
+
+.bodyx{
+	margin:0;
+	color:#444;
+	background:#e2e7eb;
+	font:300 18px/18px Roboto, sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.pull-left{float:left}
+.pull-right{float:right}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+
+.author-quote-wrap .author-quote,
+.author-quote-wrap .author-photo:before{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	position:absolute;
+}
+
+.author-quote-wrap{
+	color:#fff;
+	width:100%;
+	overflow:hidden;
+	max-width:560px;
+	min-height:390px;
+	margin:50px auto 0;
+	background:#1c425e;
+	position:relative;
+	box-shadow:0 16px 28px 0 rgba(0,0,0,.22),0 25px 55px 0 rgba(0,0,0,.21);
+}
+.author-quote-wrap .author-quote{
+	display:none;
+}
+.author-quote-wrap .toggle-quote{
+	display:none;
+}
+.author-quote-wrap .toggle-quote:checked + .author-quote{
+	display:block;
+}
+.author-quote-wrap .author-quote a{
+	color:inherit;
+	text-decoration:none;
+}
+.author-quote-wrap .author-photo,
+.author-quote-wrap .quote-content{
+	height:100%;
+	position:relative;
+}
+.author-quote-wrap .author-photo{
+	width:140px;
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	quotes:'\201C''\201D''\2018''\2019';
+}
+.author-quote-wrap .author-photo.photo-a{
+	background-image:url(https://cdn.pixabay.com/photo/2017/11/05/14/01/truck-2920533_960_720.jpg );
+}
+.author-quote-wrap .author-photo.photo-b{
+	background-image:url(https://cdn.pixabay.com/photo/2014/11/26/09/49/music-546063_960_720.png);
+}
+.author-quote-wrap .author-photo.photo-c{
+	background-image:url(https://cdn.pixabay.com/photo/2013/03/01/19/02/audio-88202_960_720.jpg);
+}
+thor-quote-wrap .author-photo:before{
+	content:'';
+	background:rgba(68, 151, 206, 0.5);
+}
+.author-quote-wrap .author-photo:after{
+	top:15px;
+	left:60px;
+	font-size:72px;
+	line-height:72px;
+	position:absolute;
+	font-family:serif;
+	content:open-quote;
+}
+.author-quote-wrap .author-photo .navigate{
+	left:15px;
+	z-index:10;
+	right:15px;
+	bottom:15px;
+	position:absolute;
+	text-align:center;
+}
+.author-quote-wrap .author-photo .navigate .label{
+	width:15px;
+	height:30px;
+	cursor:pointer;
+	position:relative;
+	display:inline-block;
+}
+.author-quote-wrap .author-photo .navigate .label.left{
+	left:-30px;
+}
+.author-quote-wrap .author-photo .navigate .label.right{
+	right:-30px;
+}
+.author-quote-wrap .author-photo .navigate .label.disabled{
+	cursor:not-allowed;
+}
+.author-quote-wrap .author-photo .navigate .label:before,
+.author-quote-wrap .author-photo .navigate .label:after{
+	content:'';
+	height:2px;
+	width:15px;
+	background:rgb(226, 16, 16);
+	position:absolute;
+}
+.author-quote-wrap .author-photo .navigate .label:before{
+	top:62%;
+}
+.author-quote-wrap .author-photo .navigate .label:after{
+	bottom:62%;
+}
+.author-quote-wrap .author-photo .navigate .label.left:before,
+.author-quote-wrap .author-photo .navigate .label.right:after{
+	transform:rotate(45deg);
+}
+.author-quote-wrap .author-photo .navigate .label.right:before,
+.author-quote-wrap .author-photo .navigate .label.left:after{
+	transform:rotate(-45deg);
+}
+.author-quote-wrap .author-photo .navigate .label.left:before,
+.author-quote-wrap .author-photo .navigate .label.left:after{
+	left:0;
+}
+.author-quote-wrap .author-photo .navigate .label.right:before,
+.author-quote-wrap .author-photo .navigate .label.right:after{
+	right:0;
+}
+.author-quote-wrap .author-photo .navigate .label.disabled:before,
+.author-quote-wrap .author-photo .navigate .label.disabled:after,
+.author-quote-wrap .author-photo .navigate .label.disabled:hover:before,
+.author-quote-wrap .author-photo .navigate .label.disabled:hover:after{
+	background:#bbb;
+}
+.author-quote-wrap .author-photo .navigate .label:hover:before,
+.author-quote-wrap .author-photo .navigate .label:hover:after{
+	background:#fff;
+}
+
+.author-quote-wrap .quote-content{
+	padding:15px;
+	width:calc(560px - 140px);
+}
+.quote-content .quote-like{
+	font-size:12px;
+	font-weight:400;
+	padding:4px 8px;
+	border-radius:15px;
+	display:inline-block;
+	background:rgba(0,0,0,.2);
+}
+.quote-content .quote-like .love{
+    width:18px;
+    height:10px;
+    position:relative;
+	display:inline-block;
+}
+.quote-content .quote-like .love:before,
+.quote-content .quote-like .love:after {
+    top:0;
+    left:7px;
+    content:'';
+    width:7px;
+    height:12px;
+    background:rgb(230, 10, 10);
+    position:absolute;
+	transform:rotate(-45deg);
+	transform-origin:0 100%;
+    border-radius:20px 20px 0 0;
+}
+.quote-content .quote-like .love:after {
+    left:0;
+	transform:rotate(45deg);
+	transform-origin :100% 100%;
+}
+
+.quote-content .quote-text,
+.quote-content .quote-author{
+	text-transform:uppercase;
+}
+.quote-content .quote-text{
+	font-size:48px;
+	font-weight:900;
+	line-height:55px;
+}
+.quote-content .quote-author{
+	bottom:15px;
+	font-size:14px;
+	font-weight:500;
+	position:absolute;
+}
+.quote-content .quote-author:before{
+	content:'- ';
+}
+
+</style>
+
+<div class="author-quote-wrap bodyx w3-card w3-shadow">
+        <input class="toggle-quote" type="radio" id="AQ-1" name="quote" checked>
+        <div class="author-quote">
+            <div class="pull-left author-photo photo-a animated bounceInLeft">
+                <div class="navigate">
+                    <label class="label left" for="AQ-5">&nbsp;</label>
+                    <label class="label right" for="AQ-2">&nbsp;</label>
+                </div>
+            </div>
+            <div class="pull-right quote-content">
+                <div class="clearfix animated zoomIn"><div class="quote-like pull-right"><span class="love"></span>A+ Transport Service</div></div>
+               <br><br><br>
+                <div class="quote-text animated rotateInDownRight w3-center">We <br>Provide<br>Transport</div>
+ 
+            </div>
+        </div>
+    
+        <input class="toggle-quote" type="radio" id="AQ-2" name="quote">
+        <div class="author-quote">
+            <div class="pull-left author-photo photo-b animated bounceInLeft">
+                <div class="navigate">
+                    <label class="label left" for="AQ-1">&nbsp;</label>
+                    <label class="label right" for="AQ-3">&nbsp;</label>
+                </div>
+            </div>
+            <div class="pull-right quote-content">
+                <div class="clearfix animated zoomIn"><div class="quote-like pull-right "><span class="love "></span>A+ Sound</div></div>
+                <br><br><br>
+                <div class="quote-text animated zoomInDown w3-center">We Provide<br>Sound Equipment</div>
+              
+            </div>
+        </div>
+    
+        <input class="toggle-quote" type="radio" id="AQ-3" name="quote">
+        <div class="author-quote">
+            <div class="pull-left author-photo photo-c animated bounceInLeft">
+                <div class="navigate">
+                    <label class="label left" for="AQ-2">&nbsp;</label>
+                    <label class="label right" for="AQ-4">&nbsp;</label>
+                </div>
+            </div>
+            <div class="pull-right quote-content">
+                <div class="clearfix animated zoomIn"><div class="quote-like pull-right"><span class="love "></span>A+ Tech Service</div></div>
+                <br><br><br>
+                <div class="quote-text animated bounceInRight w3-center">& <br>A Tech <br> Guy <br>To help</div>
+                
+         
+            </div>
+        </div>
+    
+        
+    </div>

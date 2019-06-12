@@ -43,7 +43,7 @@ nav{-webkit-transition: padding-top .3s,padding-bottom .3s;
  .shrink {
     padding-top: 0;
     padding-bottom: 0;
-    background-color: #b60707;
+    background-color:;
 }
 .banner{
 	background-image:url('../img/kingfisherbird.jpg');
@@ -154,3 +154,4 @@ nav{-webkit-transition: padding-top .3s,padding-bottom .3s;
 }
 }
  
+/* Timeline */

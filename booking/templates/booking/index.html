@@ -22,23 +22,42 @@
         <div class="banner-sub-heading ">
         We Provide Unparalleled Support To Fishers Of Men
         </div>
-        <button type="button" class="btn btn-warning text-dark btn-banner">Get started</button>
+        <button type="button" class="btn btn-warning text-dark btn-banner">Book Truck</button>
         </div>
         </div>
     </div>
 
    
-    <section id="about">
+    <section id="about" class="w3-padding w3-margin-top">
     <div class="container">
-        <div class="text-intro">
+        <div class="row">
+            <div class="col-sm-4">
+        <div class="text-intro w3-card-4 w3-text-white  w3-white w3-border-red w3-leftbar ">
+            <div class="w3-margin">
         <h2>About Us</h2>
             {% for about in abouts %}
-                <p>{{ about.content|safe|slice:"900"}}</p>
+                <p>{{ about.content|safe|slice:"500"}}</p>
             {% endfor %}
         </div>
+        </div>
+            </div>
+        <div class="col-sm">
+            {% include "partials/_abouts.html" %}
+        </div>
+        </div>
     </div>
+    </div>
+</div>
     </section>
-  
+
+<section>
+    <div class="text-lead w3-center">
+        <h1>Bookings So Far</h1>
+
+    </div>
+ {% include "partials/_timeline.html" %}
+   
+</section>
    
     
 
