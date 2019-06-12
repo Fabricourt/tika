@@ -8,7 +8,7 @@
             </button>
         </div>
         
-          </section>
+        
          <div class="w3-panel">
              <!-- Alerts -->
              {% include 'partials/_alerts.html' %}
@@ -81,7 +81,7 @@
         
             {% if booktrucks %}
         <div class="w3-container">
-            <h2 class="w3-center">Bookings</h2>
+            <h1 class="w3-center "><span class="w3-text-red w3-Xxxlarge">B</span>ookings</h1>
             <div><h3 class="w3-center w3-small"><span class="w3-text-red ">NB: </span> All Bookings will be approved once your payments are received.......</h3></div>
             <table class="w3-table">
               <tr>
@@ -92,8 +92,10 @@
               
                 
               </tr>
-              
+              <h6 class="w3-center"><i>below are all booked dates from when the truck and sound systems are hired to when they are returned, please pick only dates that have not been booked</i> </h6>
+              <hr class="w3-green" style="padding:3px;">
               {% for booktruck in booktrucks %}
+             
               <tr>
                 <td>{{booktruck.ministry_name}}</td>
                 <td>{{booktruck.booking_date}}</td>
@@ -114,6 +116,7 @@
         <style>.w3-lobster {font-family: "Lobster", serif;}</style>
         <div class="alert alert-primary w3-wide w3-animate-fading w3-center w3-content" role="alert">
                 <h4 class="w3-lobster">No Bookings Have Been Made Yet!</h4>
+               
         </div>
         
         
