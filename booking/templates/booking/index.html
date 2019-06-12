@@ -1,0 +1,47 @@
+{% extends 'booking/base.html' %}
+
+{% load static %}
+
+{% block title %} | Welcome {% endblock %}
+
+{% block content %}
+<div class="banner">
+        <div class="container">
+
+        <div class="banner-text">
+        <div class="banner-heading">
+                {% if user.is_authenticated %}
+                <span class="w3-container w3-left w3-hide-small">
+                    <a href="{% url 'profile'%}"> <img src="{{ user.profile.image.url }}" class="w3-bar-item w3-circle w3-border-white w3-margin-top " style="width:85px; height:85px"></a>
+                </span>
+            {% endif %}
+        <span class="w3-hide-small w3-hide-medium">Glad to see you here !</span>
+        <br>
+        </div>
+        
+        <div class="banner-sub-heading ">
+        We Provide Unparalleled Support To Fishers Of Men
+        </div>
+        <button type="button" class="btn btn-warning text-dark btn-banner">Get started</button>
+        </div>
+        </div>
+    </div>
+
+   
+    <section id="about">
+    <div class="container">
+        <div class="text-intro">
+        <h2>About Us</h2>
+            {% for about in abouts %}
+                <p>{{ about.content|safe|slice:"900"}}</p>
+            {% endfor %}
+        </div>
+    </div>
+    </section>
+  
+   
+    
+
+
+
+{% endblock %}
