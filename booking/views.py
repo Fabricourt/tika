@@ -7,18 +7,23 @@ from users.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from booking.models import About, Lessee, Truck, Lessor, Onhire, Booktruck
 from django.contrib.admin.views.decorators import staff_member_required
 from contact.forms import ContactForm
-from django.views.generic import (
-    ListView,
-    DetailView,
-    CreateView,
-    UpdateView,
-    DeleteView
-)
+from .forms import BooktruckForm
 
 #index
 def index(request):
   abouts = About.objects.order_by('-reload').filter(is_published=True)[:1]
   booktrucks = Booktruck.objects.order_by('-timestamp').filter(is_published=True)
+  
+
+  if request.method == "POST":
+        form = BooktruckForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+  else:
+       
+        form = BooktruckForm()
+
 
   if request.method == "POST":
         form = ContactForm(request.POST)
@@ -33,6 +38,7 @@ def index(request):
     
   
   context = {
+    'form': form,
     'form': form,
     'abouts': abouts,
     'booktrucks': booktrucks, 

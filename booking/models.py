@@ -77,7 +77,9 @@ class Onhire(models.Model):
          return f'{self.hirer}  {self.truck_ownership}  {self.mission_location}'
 
 class Booktruck(models.Model):
-    person_hiring_the_truck = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.IntegerField(blank=True, null=True)
+    first_name = models.CharField(max_length=100, blank=True, null=True)
+    last_name = models.CharField(max_length=100, blank=True, null=True)
     ministry_name = models.CharField(max_length=200, blank=True, null=True)
     email = models.CharField(max_length=100, blank=True, null=True)
     phone_number = models.CharField(max_length=100, blank=True, null=True)
@@ -88,7 +90,7 @@ class Booktruck(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)    
     is_published = models.BooleanField(default=True)
     def __str__(self):
-        return f'{self.Person_hiring_the_truck }  {self.phone_number}  {self.ministry_name} {self.email} {self.booking_date} {self.return_date}'
+        return f'{self.first_name}  {self.phone_number}  {self.ministry_name} {self.email} {self.booking_date} {self.return_date}'
         
     def save(self, **kwargs):
         super().save()

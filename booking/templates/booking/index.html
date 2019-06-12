@@ -5,6 +5,7 @@
 {% block title %} | Welcome {% endblock %}
 
 {% block content %}
+
 <div class="banner">
         <div class="container">
 
@@ -51,8 +52,12 @@
     </section>
 
 <section>
+    {% include "partials/_bookings.html" %}
+</section>
+
+
     <div class="text-lead w3-center">
-        <h1>Bookings So Far</h1>
+        <h1>Our Story</h1>
 
     </div>
  {% include "partials/_timeline.html" %}

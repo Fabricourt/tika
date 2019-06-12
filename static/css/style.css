@@ -56,21 +56,24 @@ nav{-webkit-transition: padding-top .3s,padding-bottom .3s;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+	background-size: cover;
+	width:100%;
+	height:auto;
+	
 }
 
 .aboutbanner{
 	background-image:url('../img/about.jpg');
 	text-align: center;
     color: #fff;
-   
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+	background-size: cover;
+
 }
 
 .banner-text{
