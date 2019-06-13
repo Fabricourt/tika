@@ -37,12 +37,14 @@
             <div class="w3-margin">
         <h2>About Us</h2>
             {% for about in abouts %}
-                <p>{{ about.content|safe|slice:"700"}}</p>
+                <p>{{ about.content|safe|slice:"500"}}</p>
             {% endfor %}
         </div>
         </div>
             </div>
+           
         <div class="col-sm">
+            
             {% include "partials/_abouts.html" %}
         </div>
         </div>
