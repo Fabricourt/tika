@@ -9,6 +9,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from contact.forms import ContactForm
 from .forms import BooktruckForm
 
+
 #index
 def index(request):
   abouts = About.objects.order_by('-reload').filter(is_published=True)[:1]
@@ -23,22 +24,10 @@ def index(request):
   else:
        
         form = BooktruckForm()
+        messages.success(request, 'Your message has been sent')
+        
 
-
-  if request.method == "POST":
-        form = ContactForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Your message has been sent')
-            return redirect('contact')
-      
-  else:
-        form = ContactForm()
-    
-  
   context = {
-    'form': form,
     'form': form,
     'abouts': abouts,
     'booktrucks': booktrucks, 
@@ -171,3 +160,20 @@ def profile(request):
     return render(request, 'booking/profile.html', context)
 
 
+
+def contact(request):
+    if request.method == "POST":
+        form =ContactForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your message has been sent')
+            return redirect('contact')
+      
+    else:
+        form = ContactForm()
+    
+    context ={
+        'form': form,
+    }
+    return render(request, "booking/contact.html", context)

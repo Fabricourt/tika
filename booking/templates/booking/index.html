@@ -1,7 +1,7 @@
 {% extends 'booking/base.html' %}
 
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block title %} | Welcome {% endblock %}
 
 {% block content %}
@@ -51,7 +51,7 @@
 </div>
     </section>
 
-<section class="w3-white">
+<section class="w3-white w3-normal">
     {% include "partials/_bookings.html" %}
 </section>
 
@@ -64,8 +64,4 @@
    
 </section>
    
-    
-
-
-
 {% endblock %}
