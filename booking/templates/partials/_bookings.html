@@ -14,12 +14,11 @@
              {% include 'partials/_alerts.html' %}
          </div>
           <!-- Inquiry Modal -->
-          <div class="modal fade" id="inquiryModal" role="dialog">
+          <div class="modal fade " id="inquiryModal" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header w3-win8-red">
-                  <h5 class="modal-title w3-theme" id="inquiryModalLabel">Fill in the form to send your booking</h5>
-                
+
                   <button type="button" class="close" data-dismiss="modal">
                     <span class="w3-text-white">&times;</span>
                   </button>
@@ -40,6 +39,7 @@
                         <label for="first_name">First Name</label>
                               <input type="text" name="first_name" class="form-control" value="{{ user.first_name}}" required>
                             </div>
+
                             <div class="form-group">
                               <label for="last_name">Last Name</label>
                               <input type="text" name="last_name" class="form-control" value="{{ user.last_name }}" required>
@@ -70,7 +70,7 @@
                           </div>
 
                         <hr>
-                        <input type="submit" value="Send" class="btn btn-block btn-secondary">
+                        <input type="submit" value="Send" class="btn btn-block w3-large w3-highway-red btn-secondary">
                       </form>
                    
                     </div>
